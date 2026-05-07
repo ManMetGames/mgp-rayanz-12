@@ -56,7 +56,7 @@ void AMGP_2526Character::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent)) {
 		
 		// Jumping
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AMGP_2526Character::DoJumpStart);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 
 		// Moving
@@ -123,6 +123,7 @@ void AMGP_2526Character::DoLook(float Yaw, float Pitch)
 void AMGP_2526Character::DoJumpStart()
 {
 	// signal the character to jump
+	SetActorLocation(FVector(999, 999, 999));
 	Jump();
 }
 

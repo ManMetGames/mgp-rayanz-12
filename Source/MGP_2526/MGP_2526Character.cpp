@@ -123,6 +123,9 @@ void AMGP_2526Character::DoLook(float Yaw, float Pitch)
 void AMGP_2526Character::DoJumpStart()
 {
 	// signal the character to jump
+
+	// shoot a line cast out from the player get the location of the hit and set the location of the actor there
+// https://dev.epicgames.com/community/snippets/2rR/simple-c-line-trace-collision-query
 	SetActorLocation(FVector(999, 999, 999));
 	Jump();
 }
